@@ -4,8 +4,11 @@ from rest_framework import viewsets, status
 
 from games.models import Categoria, Game
 
-class CategoriaViewSet(mixins.ListModelMixin,                     
-                     mixins.RetrieveModelMixin,                     
+class CategoriaViewSet(mixins.ListModelMixin,
+                     mixins.CreateModelMixin,
+                     mixins.RetrieveModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.DestroyModelMixin,
                      viewsets.GenericViewSet):
     # permission_classes = (IsAuthenticated,)
     queryset = Categoria.objects.all()
@@ -22,3 +25,6 @@ class GameViewSet(mixins.ListModelMixin,
     #permission_classes = (IsAuthenticated,)
     queryset = Game.objects.all()
     serializer_class = GameSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
