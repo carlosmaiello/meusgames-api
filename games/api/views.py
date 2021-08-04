@@ -1,8 +1,8 @@
-from meusgames.games.api.serializers import CategoriaSerializer, GameSerializer
+from .serializers import  CategoriaSerializer,GameSerializer
 from rest_framework import mixins
 from rest_framework import viewsets, status
 
-from meusgames.games.models import Categoria, Game
+from games.models import Categoria, Game
 
 class CategoriaViewSet(mixins.ListModelMixin,                     
                      mixins.RetrieveModelMixin,                     
