@@ -58,5 +58,4 @@ class GameViewSet(mixins.ListModelMixin,
     serializer_class = GameSerializer
 
     def perform_create(self, serializer):
-        print(serializer)
-        serializer.save(user=self.request.user)
+        serializer.save(usuario=self.request.user)
