@@ -7,7 +7,7 @@ class Categoria(models.Model):
 # Create your models here.
 class Game(models.Model):
     categoria = models.ForeignKey(Categoria, null=False, on_delete=models.RESTRICT)
-    usuario = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
+    usuario = models.ForeignKey(User, related_name='games', on_delete=models.CASCADE)
     nome = models.CharField(max_length=255, blank=False)
     dataLancamento = models.DateTimeField(blank=True)
     preco = models.DecimalField(max_digits=7, decimal_places=2, default=0)

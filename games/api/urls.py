@@ -8,6 +8,3 @@ app_name = 'games'
 router = DefaultRouter()
 router.register('categorias', CategoriaViewSet)
 router.register('games', GameViewSet)
-
-urlpatterns = [
-]
