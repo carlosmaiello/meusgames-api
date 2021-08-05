@@ -59,3 +59,18 @@ class GameViewSet(mixins.ListModelMixin,
 
     def perform_create(self, serializer):
         serializer.save(usuario=self.request.user)
+
+    def get_queryset(self):
+        user = self.request.user
+
+        queryset = Game.objects.filter(usuario=user)
+
+        usuario_id = self.request.query_params.get('usuario_id')
+
+        print(user.is_superuser)
+
+        if usuario_id is not None and user.is_superuser == True:
+            queryset = Game.objects.filter(usuario__id=usuario_id)
+
+        return queryset
+
