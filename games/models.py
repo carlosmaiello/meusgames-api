@@ -15,4 +15,4 @@ class Game(models.Model):
     concluido = models.BooleanField(default=False)
     dataUltimoJogo = models.DateTimeField(null=True)
     avaliacao = models.IntegerField(default=0)
-    comentario = models.TextField(default="")
+    comentario = models.TextField(default="", null=True)
