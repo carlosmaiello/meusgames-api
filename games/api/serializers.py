@@ -47,7 +47,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
 class GameSerializer(serializers.ModelSerializer):
     categoria = CategoriaSerializer(read_only=True)
-    categoria_id = serializers.IntegerField()
+    categoria_id = serializers.IntegerField(required=True)
     #dataLancamento = serializers.DateField(required=True)
     
     class Meta:
